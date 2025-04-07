@@ -1,0 +1,8 @@
+{
+    "require": {
+        "laravel/jetstream": "^5.3"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.5"
+    }
+}

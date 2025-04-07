@@ -1,0 +1,67 @@
+
+
+services:
+
+  ### Laravel App ###
+  app:
+    build:
+      context: ./laravel
+    container_name: hoa-laravel-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./laravel:/var/www/html
+    depends_on:
+      - mariadb
+    working_dir: /var/www/html
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    environment:
+      - APP_ENV=local
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_DATABASE=laravel
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+    restart: unless-stopped
+
+  ### BookStack ###
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    container_name: bookstack
+    depends_on:
+      - mariadb
+    environment:
+      - PUID=501
+      - PGID=501
+      - TZ=Europe/Paris
+      - APP_URL=http://localhost:6875
+      - APP_KEY=base64:M4HRMgEtSC1Oh4v5AoThwCPSmYMuvvvcCu6x4Z57vtA=
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_USERNAME=bookstack_user
+      - DB_PASSWORD=bookstack_password
+      - DB_DATABASE=bookstack_db
+      - QUEUE_CONNECTION=sync
+    volumes:
+      - ./docker/bookstack:/config
+    ports:
+      - 6875:80
+    restart: unless-stopped
+
+  ### MariaDB ###
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bookstack_db
+      - MYSQL_USER=bookstack_user
+      - MYSQL_PASSWORD=bookstack_password
+    volumes:
+      - ./docker/mariadb:/var/lib/mysql
+    ports:
+      - 3307:3306
+    restart: unless-stopped

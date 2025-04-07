@@ -1,0 +1,20 @@
+
+```gitignore
+# Global ignores
+.env
+.env.*
+node_modules/
+vendor/
+storage/*.key
+
+# Laravel ignores
+/public/storage
+/storage/app/public
+/bootstrap/cache/*.php
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+
+# Docker volumes
+docker/mariadb/*
+docker/bookstack/*
