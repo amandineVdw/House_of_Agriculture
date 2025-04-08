@@ -25,3 +25,9 @@ Vérifie simplement que l’UID de ton utilisateur est bien 1000 :
 id -u  # doit afficher 1000
 Sinon, adapte la variable pour coller à ton environnement local.
 
+## 💡 Utilisation du script `dev.sh`
+
+Dans le terminal :
+
+```bash
+source dev.sh
