@@ -1,20 +1,52 @@
-
-```gitignore
+# -------------------------------------
 # Global ignores
+# -------------------------------------
 .env
 .env.*
 node_modules/
 vendor/
 storage/*.key
+.DS_Store
+*.log
 
-# Laravel ignores
-/public/storage
-/storage/app/public
-/bootstrap/cache/*.php
+# IDEs
+.vscode/
+.idea/
+
+# PHPUnit
 .phpunit.result.cache
+
+# -------------------------------------
+# Laravel-specific
+# -------------------------------------
+
+# Compiled files
+/public/storage
+/bootstrap/cache/*.php
+
+# Cache & logs
+/storage/app/*
+!/storage/app/.gitkeep
+!/storage/app/public/.gitkeep
+
+/storage/framework/*
+!/storage/framework/.gitkeep
+!/storage/framework/sessions/.gitkeep
+!/storage/framework/views/.gitkeep
+!/storage/framework/cache/data/.gitkeep
+
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+/bootstrap/cache/*
+!/bootstrap/cache/.gitkeep
+
+# Homestead
 Homestead.yaml
 Homestead.json
 
-# Docker volumes
+# -------------------------------------
+# Docker volumes (bookstack & mariadb)
+# -------------------------------------
 docker/mariadb/*
-docker/bookstack/*
+!docker/m
