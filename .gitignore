@@ -2,7 +2,10 @@
 # Global ignores
 # -------------------------------------
 .env
-.env.*
+!.env.example
+.env.backup
+.env.production
+
 node_modules/
 vendor/
 storage/*.key
