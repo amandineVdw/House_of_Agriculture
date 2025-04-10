@@ -7,38 +7,51 @@ Ce document vous explique **comment collaborer efficacement** avec le reste de l
 
 ## 📌 Branches principales
 
-| Branche     | Rôle                                      |
-|-------------|--------------------------------------------|
-| `main`      | Version stable du projet (prod, démo)      |
-| `develop`   | Base de travail commune à toute l’équipe   |
-| `frontend`  | Design, Blade, Livewire, Tailwind/Bootstrap|
-| `backend`   | API, logique métier, modèles Eloquent      |
-| `docs`      | Documentation, guides, procédures internes |
+| Branche    | Rôle                                        |
+| ---------- | ------------------------------------------- |
+| `main`     | Version stable du projet (prod, démo)       |
+| `develop`  | Base de travail commune à toute l’équipe    |
+| `frontend` | Design, Blade, Livewire, Tailwind/Bootstrap |
+| `backend`  | API, logique métier, modèles Eloquent       |
+| `docs`     | Documentation, guides, procédures internes  |
 
 ---
 
 ## 🔄 Workflow Git recommandé
 
+🧭 Résumé rapide : main vs develop
+
+Branche : main = Code stable, prêt pour prod/demo
+Branche : develop = Code en cours, où on développe les features
+
+🎯 Donc :
+Tu développes toujours sur develop
+Tu merges vers main quand tu es prêt à publier une version stable
+
 ### ➕ Créer une nouvelle fonctionnalité
 
 1. Se placer sur `develop` :
+
    ```bash
    git checkout develop
    git pull
    ```
 
 2. Créer une nouvelle branche :
+
    ```bash
    git checkout -b feature/nom-de-la-fonction
    ```
 
 3. Coder, commiter régulièrement :
+
    ```bash
    git add .
    git commit -m "feat: ajoute la page de cours"
    ```
 
 4. Pousser la branche :
+
    ```bash
    git push origin feature/nom-de-la-fonction
    ```
@@ -49,15 +62,16 @@ Ce document vous explique **comment collaborer efficacement** avec le reste de l
 
 ## ✍️ Conventions de nommage des branches
 
-| Préfixe     | Utilisation                                  |
-|-------------|-----------------------------------------------|
-| `feature/`  | Nouvelle fonctionnalité                       |
-| `fix/`      | Correction de bug                            |
-| `chore/`    | Tâches techniques, config, mise à jour        |
-| `hotfix/`   | Correction urgente en production             |
-| `docs/`     | Ajout ou mise à jour de documentation        |
+| Préfixe    | Utilisation                            |
+| ---------- | -------------------------------------- |
+| `feature/` | Nouvelle fonctionnalité                |
+| `fix/`     | Correction de bug                      |
+| `chore/`   | Tâches techniques, config, mise à jour |
+| `hotfix/`  | Correction urgente en production       |
+| `docs/`    | Ajout ou mise à jour de documentation  |
 
 Exemples :
+
 ```bash
 feature/formulaire-inscription
 fix/erreur-validation-email
@@ -69,10 +83,12 @@ docs/mise-a-jour-readme
 ## ✅ Bonnes pratiques
 
 - Garder des **commits clairs et significatifs** :
+
   - `feat: ajoute le composant formulaire`
   - `fix: corrige l’erreur de migration`
 
 - Ouvrir une **Pull Request propre et compréhensible** :
+
   - Titre explicite
   - Description du changement
   - Captures d’écran si besoin
@@ -92,6 +108,7 @@ Inspiré de Conventional Commits :
 ```
 
 Types recommandés :
+
 - `feat:` nouvelle fonctionnalité
 - `fix:` correction de bug
 - `docs:` documentation
@@ -105,6 +122,7 @@ Types recommandés :
 ## 🧪 Tests et vérifications
 
 Avant d’ouvrir une PR :
+
 - Vérifiez que le projet tourne (`./start.sh`)
 - Vérifiez que Laravel et BookStack fonctionnent
 - Relisez vos commits
