@@ -31,7 +31,7 @@ Plateforme de cours en ligne avec Laravel + BookStack, orchestrée via Docker.
 ## 🚀 Démarrage rapide
 
 ```bash
-git clone https://github.com/ton-user/hoa-platform.git
+git clone git@github.com:JuanAndresImb/House_of_Agriculture.git
 cd hoa-platform
 cp laravel/.env.example laravel/.env
 ./start.sh
