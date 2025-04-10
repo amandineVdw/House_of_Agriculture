@@ -1,7 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.plain')
 
 @section('content')
-<div class="container">
     <h1>Tous les cours</h1>
     <a href="{{ route('courses.create') }}" class="btn btn-primary">Ajouter un cours</a>
 
@@ -14,5 +13,4 @@
             </div>
         </div>
     @endforeach
-</div>
 @endsection
