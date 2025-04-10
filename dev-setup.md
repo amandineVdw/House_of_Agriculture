@@ -76,6 +76,13 @@ art make:model Formation
 → Vérifie que `APP_KEY` est bien présent dans `docker-compose.yml`
 
 ---
+## Si besoin après un git pull, relance ces commandes :
+
+cd laravel
+composer install        # remet à jour les dépendances PHP
+npm install             # remet à jour les dépendances JS
+npm run dev             # compile les assets frontend (si Vite est utilisé)
+php artisan migrate     # applique les migrations si le backend a évolué
 
 ## 📬 Besoin d'aide ?
 
