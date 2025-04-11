@@ -39,8 +39,6 @@ services:
       - DB_PASSWORD=bookstack_password
       - DB_DATABASE=bookstack_db
       - QUEUE_CONNECTION=sync
-      - ADMIN_EMAIL=admin@admin.com
-      - ADMIN_PASS=password
     volumes:
       - ./docker/bookstack:/config
     ports:
