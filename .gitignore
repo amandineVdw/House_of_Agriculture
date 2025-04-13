@@ -1,57 +1,65 @@
 # -------------------------------------
 # Global ignores
 # -------------------------------------
-.cache
-
-.env
-!.env.example
-.env.backup
-.env.production
-
-node_modules/
-vendor/
-storage/*.key
-.DS_Store
-*.log
-
-# IDEs
-.vscode/
-.idea/
-
-# PHPUnit
-.phpunit.result.cache
+.cache                       # Fichiers de cache générés
+.env                         # Fichier d'environnement principal
+!.env.example                # Exemple de fichier .env qui doit être suivi
+.env.backup                  # Sauvegardes du fichier .env
+.env.production              # Fichier .env pour la production
+node_modules/                # Dépendances npm
+vendor/                      # Dépendances Composer
+storage/*.key                # Clés de stockage sensibles
+.DS_Store                    # Fichier spécifique macOS
+*.log                        # Fichiers de log
+.vscode/                     # Configuration VSCode
+.idea/                       # Configuration PHPStorm/IDE
+.phpunit.result.cache        # Cache PHPUnit
 
 # -------------------------------------
 # Laravel-specific
 # -------------------------------------
-
 # Compiled files
-/public/storage
-/bootstrap/cache/*.php
+/public/storage               # Dossier de stockage public
+/bootstrap/cache/*.php        # Fichiers de cache de Laravel
 
 # Cache & logs
-/storage/app/*
-!/storage/app/.gitkeep
-!/storage/app/public/.gitkeep
+/storage/app/*                # Fichiers de stockage d'application
+!/storage/app/.gitkeep        # Garde le fichier .gitkeep pour initier le répertoire
 
-/storage/framework/*
+/storage/framework/*          # Cache, sessions, et vues de Laravel
 !/storage/framework/.gitkeep
 !/storage/framework/sessions/.gitkeep
 !/storage/framework/views/.gitkeep
 !/storage/framework/cache/data/.gitkeep
 
-/storage/logs/*
-!/storage/logs/.gitkeep
+/storage/logs/*               # Logs de Laravel
+!/storage/logs/.gitkeep       # Garde le fichier .gitkeep
 
-/bootstrap/cache/*
-!/bootstrap/cache/.gitkeep
+/bootstrap/cache/*            # Cache de Laravel
+!/bootstrap/cache/.gitkeep    # Garde le fichier .gitkeep
 
 # Homestead
-Homestead.yaml
-Homestead.json
+Homestead.yaml                # Fichier de configuration Homestead
+Homestead.json                # Fichier de configuration Homestead
 
 # -------------------------------------
-# Docker volumes (bookstack & mariadb)
+# Docker volumes (BookStack & MariaDB)
 # -------------------------------------
-docker/mariadb/*
-!docker/m
+# Ignorer les volumes générés par Docker pour BookStack et MariaDB
+docker/bookstack/www/storage/*  # Fichiers générés par BookStack
+!/docker/bookstack/www/storage/.gitkeep  # Garde le fichier .gitkeep
+
+docker/bookstack/www/framework/cache/*  # Cache généré par BookStack
+!/docker/bookstack/www/framework/cache/.gitkeep  # Garde le fichier .gitkeep
+
+docker/bookstack/www/framework/views/*  # Vues générées par BookStack
+!/docker/bookstack/www/framework/views/.gitkeep  # Garde le fichier .gitkeep
+
+docker/mariadb/*              # Fichiers de volume de MariaDB
+!/docker/mariadb/.gitkeep     # Garde le fichier .gitkeep pour initier le répertoire
+
+# --------------------------------------------------------------
+# Autres fichiers générés automatiquement que tu veux ignorer
+# --------------------------------------------------------------
+*.sqlite                      # Fichiers de base de données SQLite
+*.db                          # Autres fichiers de base de données
