@@ -1,0 +1,12 @@
+#AVDW-14-04-2025 AJOUT.DOCKERIGNORE
+# Evite d'envoyer des fichiers inutiles dans l'image
+node_modules
+vendor
+storage/*.key
+.env
+docker-compose.yml
+Dockerfile
+*.log
+npm-debug.log
+*.zip
+*.tar

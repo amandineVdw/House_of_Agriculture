@@ -55,7 +55,7 @@ services:
       - TZ=Europe/Paris
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=bookstack_db
-      - MYSQL_USER=bookstack_user
+      - MYSQL_USER=bookstack_user # linuxserver/mariadb ne configure pas l'accès root comme tu pourrais t’y attendre. crée un utilisateur par défaut avec les infos que tu mets dans MYSQL_USER et MYSQL_PASSWORD.
       - MYSQL_PASSWORD=bookstack_password
     volumes:
       - ./docker/mariadb:/var/lib/mysql
