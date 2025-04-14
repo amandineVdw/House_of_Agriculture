@@ -63,3 +63,10 @@ docker/mariadb/*              # Fichiers de volume de MariaDB
 # --------------------------------------------------------------
 *.sqlite                      # Fichiers de base de données SQLite
 *.db                          # Autres fichiers de base de données
+
+
+# --------------------------------------------------------------
+# stash_diff.patch est un fichier qui existe dans ton répertoire de travail, mais que Git ne le suit pas encore.Il ne sera pas inclus dans le prochain commit à moins que tu ne fasses quelque chose pour le suivre (avec git add).
+# --------------------------------------------------------------
+stash_diff.patch
+
