@@ -1,0 +1,26 @@
+<div class="item-list-row flex-container-row items-center wrap">
+    <div class="flex py-s px-m min-width-s">
+        <strong><?php echo e($title); ?></strong> <br>
+        <a href="#" refs="permissions-table@toggle-row" class="text-small text-link"><?php echo e(trans('common.toggle_all')); ?></a>
+    </div>
+    <div class="flex py-s px-m min-width-xxs">
+        <small class="hide-over-m bold"><?php echo e(trans('common.create')); ?><br></small>
+        <?php echo $__env->make('settings.roles.parts.checkbox', ['permission' => $permissionPrefix . '-create-all', 'label' => ''], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+    </div>
+    <div class="flex py-s px-m min-width-xxs">
+        <small class="hide-over-m bold"><?php echo e(trans('common.view')); ?><br></small>
+        <small class="faded"><?php echo e(trans('settings.role_controlled_by_asset')); ?><?php if($refMark ?? false): ?><sup><?php echo e($refMark); ?></sup><?php endif; ?></small>
+    </div>
+    <div class="flex py-s px-m min-width-xxs">
+        <small class="hide-over-m bold"><?php echo e(trans('common.edit')); ?><br></small>
+        <?php echo $__env->make('settings.roles.parts.checkbox', ['permission' => $permissionPrefix . '-update-own', 'label' => trans('settings.role_own')], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+        <br>
+        <?php echo $__env->make('settings.roles.parts.checkbox', ['permission' => $permissionPrefix . '-update-all', 'label' => trans('settings.role_all')], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+    </div>
+    <div class="flex py-s px-m min-width-xxs">
+        <small class="hide-over-m bold"><?php echo e(trans('common.delete')); ?><br></small>
+        <?php echo $__env->make('settings.roles.parts.checkbox', ['permission' => $permissionPrefix . '-delete-own', 'label' => trans('settings.role_own')], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+        <br>
+        <?php echo $__env->make('settings.roles.parts.checkbox', ['permission' => $permissionPrefix . '-delete-all', 'label' => trans('settings.role_all')], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+    </div>
+</div><?php /**PATH /app/www/resources/views/settings/roles/parts/related-asset-permissions-row.blade.php ENDPATH**/ ?>
