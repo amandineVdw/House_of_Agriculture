@@ -1,16 +1,6 @@
-@import 'bootstrap';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Importer bootstrap EN DERNIER pour qu'il écrase Tailwind */
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
-@import "bootstrap";
-
-body {
-    background: lightblue;
-}
-
-
-
-
-[x-cloak] {
-    display: none;
-}
