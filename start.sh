@@ -3,14 +3,14 @@
 echo "🛠 Démarrage des services Docker..."
 docker-compose up -d
 
-echo "📦 Installation des dépendances Laravel (si nécessaires)..."
-docker exec hoa-laravel-app composer install
+echo "📦 Installation des dépendances Laravel..."
+docker exec -w /var/www/html hoa-laravel-app composer install
 
 echo "🔐 Génération de la clé Laravel..."
-docker exec hoa-laravel-app php artisan key:generate
+docker exec -w /var/www/html hoa-laravel-app php artisan key:generate
 
 echo "📊 Migration de la base Laravel..."
-docker exec hoa-laravel-app php artisan migrate --force
+docker exec -w /var/www/html hoa-laravel-app php artisan migrate --force
 
 echo "✅ Application disponible :"
 echo " - Laravel    : http://localhost:8000"
