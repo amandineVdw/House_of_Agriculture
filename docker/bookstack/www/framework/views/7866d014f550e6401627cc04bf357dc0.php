@@ -1,0 +1,1 @@
+<?php $__env->startPush('body-class', e((new \BookStack\Activity\Tools\TagClassGenerator($entity->tags->all()))->generateAsString() . ' ')); ?><?php /**PATH /app/www/resources/views/entities/body-tag-classes.blade.php ENDPATH**/ ?>

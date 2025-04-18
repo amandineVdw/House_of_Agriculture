@@ -1,0 +1,3 @@
+<?php $__currentLoopData = $entity->tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php echo $__env->make('entities.tag', ['tag' => $tag], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php /**PATH /app/www/resources/views/entities/tag-list.blade.php ENDPATH**/ ?>
