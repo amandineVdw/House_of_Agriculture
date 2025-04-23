@@ -56,7 +56,12 @@ docker/mariadb/*
 
 
 
-# AVDW 23/04/25
-# fichiers temporaires de cache, sessions, vues compilées, etc. 
-docker/bookstack/www/framework/*
-!docker/bookstack/www/framework/.gitignore
+# AVDW 23/04/25 - Ignorer les fichiers temporaires de Laravel/BookStack
+docker/bookstack/www/framework/cache/
+docker/bookstack/www/framework/sessions/
+docker/bookstack/www/framework/views/
+
+# Garder les répertoires vides si nécessaires (grâce à un .gitignore dans ces dossiers)
+!docker/bookstack/www/framework/cache/.gitignore
+!docker/bookstack/www/framework/sessions/.gitignore
+!docker/bookstack/www/framework/views/.gitignore
