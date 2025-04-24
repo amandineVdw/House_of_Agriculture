@@ -2,14 +2,14 @@ name: Automatisation Makefile
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # Exécution tous les jours à 2h du matin UTC
+    - cron: '0 12 * * *'  # Exécution tous les jours à 14h00 heure de Paris (12h00 UTC)
   push:
     branches:
-      - main  # Exécution lors des pushes sur la branche main
+      - develop  # Exécution lors des pushes sur la branche develop
 
 jobs:
   makefile_job:
-    runs-on: ubuntu-latest  # Machine virtuelle Ubuntu
+    runs-on: windows-latest  # Machine virtuelle Windows (comme tu utilises PowerShell)
 
     steps:
       # Étape 1: Checkout du code
@@ -19,10 +19,17 @@ jobs:
       # Étape 2: Installer Make et Docker
       - name: Install Make and Docker
         run: |
-          sudo apt-get update
-          sudo apt-get install -y make docker.io
+          choco install make
+          choco install docker-desktop
+        continue-on-error: false  # Arrêter le job si l'installation échoue
 
-      # Étape 3: Exécuter la commande 'make down'
+      # Étape 3: Vérifier si Docker est bien installé
+      - name: Check Docker Installation
+        run: |
+          docker --version
+        continue-on-error: false  # Arrêter le job si Docker n'est pas installé
+
+      # Étape 4: Exécuter la commande 'make down'
       - name: Run make down
         run: |
           make down
