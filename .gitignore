@@ -65,3 +65,7 @@ docker/bookstack/www/framework/views/
 !docker/bookstack/www/framework/cache/.gitignore
 !docker/bookstack/www/framework/sessions/.gitignore
 !docker/bookstack/www/framework/views/.gitignore
+
+# AVDW 23/04/25 -
+/backups/*
+!.gitkeep

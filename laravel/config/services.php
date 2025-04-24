@@ -36,7 +36,8 @@ return [
     ],
     'bookstack' => [
     'url' => env('BOOKSTACK_API_URL'),
-    'token' => env('BOOKSTACK_API_TOKEN'),
+    'token_id' => env('BOOKSTACK_API_ID'),
+    'token_secret' => env('BOOKSTACK_API_TOKEN'),
 ],
 
 

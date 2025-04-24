@@ -7,18 +7,21 @@ use Illuminate\Support\Facades\Http;
 class BookStackClient
 {
     protected string $baseUrl;
+    protected string $tokenId;
     protected string $token;
+    protected string $tokenSecret;
 
     public function __construct()
     {
         $this->baseUrl = rtrim(config('services.bookstack.url'), '/');
-        $this->token = config('services.bookstack.token');
+        $this->tokenId      = config('services.bookstack.token_id');
+        $this->tokenSecret  = config('services.bookstack.token_secret');
     }
 
     protected function getHeaders(): array
     {
         return [
-            'Authorization' => 'Token ' . $this->token,
+            'Authorization' => 'Token ' . $this->tokenId . ':' .$this->tokenSecret,
             'Accept' => 'application/json',
         ];
     }

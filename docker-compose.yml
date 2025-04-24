@@ -1,20 +1,26 @@
-
-
 services:
-
   ### Laravel App ###
   app:
     build:
       context: ./laravel
+      dockerfile: Dockerfile
     container_name: hoa-laravel-app
     ports:
-      - "8000:8000"
+      - "8000:8000" # Larav
+      - "5173:5173" # Vite - AVDW 23/04/25
     volumes:
       - ./laravel:/var/www/html
     depends_on:
       - mariadb
     working_dir: /var/www/html
-    command: php artisan serve --host=0.0.0.0 --port=8000
+    # 1) on n’utilise plus `command: php artisan serve…`
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        php artisan config:clear && \
+        php artisan config:cache && \
+        php artisan serve --host=0.0.0.0 --port=8000
     environment:
       - APP_ENV=local
       - DB_HOST=mariadb
@@ -62,11 +68,10 @@ services:
       - MYSQL_PASSWORD=bookstack_password
     volumes:
       - ./docker/mariadb:/var/lib/mysql
-      - mariadb_data:/var/lib/mysql
     ports:
       - 3307:3306
     restart: unless-stopped
-    
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
