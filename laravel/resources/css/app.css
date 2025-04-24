@@ -1,6 +1,11 @@
+/* resources/css/app.css */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 /* Importer bootstrap EN DERNIER pour qu'il écrase Tailwind */
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+
+/* charger la police Figtree depuis Google Fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap');

@@ -34,11 +34,11 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-    'bookstack' => [
-    'url' => env('BOOKSTACK_API_URL'),
-    'token_id' => env('BOOKSTACK_API_ID'),
-    'token_secret' => env('BOOKSTACK_API_TOKEN'),
-],
 
+    'bookstack' => [
+    'url' => env('BOOKSTACK_URL'),  // Met à jour avec 'BOOKSTACK_URL' du .env
+    'token_id' => env('BOOKSTACK_API_TOKEN_ID'),  // Met à jour avec 'BOOKSTACK_API_TOKEN_ID' du .env
+    'token_secret' => env('BOOKSTACK_API_TOKEN_SECRET'),  // Met à jour avec 'BOOKSTACK_API_TOKEN_SECRET' du .env
+    ],
 
 ];

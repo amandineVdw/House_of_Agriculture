@@ -9,6 +9,9 @@ export default {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/js/**/*.js',         // Si tu utilises des fichiers JS
+        './resources/js/**/*.vue',        // Si tu utilises Vue.js
+        './resources/css/**/*.css',       // Si tu as des fichiers CSS spécifiques
     ],
 
     theme: {

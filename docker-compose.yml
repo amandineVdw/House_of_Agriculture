@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   ### Laravel App ###
   app:
@@ -6,14 +8,13 @@ services:
       dockerfile: Dockerfile
     container_name: hoa-laravel-app
     ports:
-      - "8000:8000" # Larav
+      - "8000:8000" # Laravel
       - "5173:5173" # Vite - AVDW 23/04/25
     volumes:
       - ./laravel:/var/www/html
     depends_on:
       - mariadb
     working_dir: /var/www/html
-    # 1) on n’utilise plus `command: php artisan serve…`
     entrypoint:
       - /bin/sh
       - -c
@@ -51,7 +52,7 @@ services:
     volumes:
       - ./docker/bookstack:/config
     ports:
-      - 6875:80
+      - "6875:80"
     restart: unless-stopped
 
   ### MariaDB ###
@@ -69,7 +70,7 @@ services:
     volumes:
       - ./docker/mariadb:/var/lib/mysql
     ports:
-      - 3307:3306
+      - "3307:3306"
     restart: unless-stopped
 
   phpmyadmin:
@@ -82,9 +83,13 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - 8081:80
+      - "8081:80"
     restart: unless-stopped
 
 volumes:
   mariadb_data:
   bookstack_data:
+
+networks:
+  default:
+    name: house_of_agriculture_network

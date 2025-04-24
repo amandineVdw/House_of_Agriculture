@@ -16,12 +16,15 @@ class BookStackClient
         $this->baseUrl = rtrim(config('services.bookstack.url'), '/');
         $this->tokenId      = config('services.bookstack.token_id');
         $this->tokenSecret  = config('services.bookstack.token_secret');
+
+        // Initialise la propriété $token avec tokenId et tokenSecret - AVDW 24/04/25
+        $this->token = $this->tokenId . ':' . $this->tokenSecret;
     }
 
     protected function getHeaders(): array
     {
         return [
-            'Authorization' => 'Token ' . $this->tokenId . ':' .$this->tokenSecret,
+            'Authorization' => 'Token ' . $this->token,  // Utiliser $this->token ici -AVDW 24/04/25
             'Accept' => 'application/json',
         ];
     }
