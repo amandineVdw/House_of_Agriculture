@@ -1,0 +1,28 @@
+name: Automatisation Makefile
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Exécution tous les jours à 2h du matin UTC
+  push:
+    branches:
+      - main  # Exécution lors des pushes sur la branche main
+
+jobs:
+  makefile_job:
+    runs-on: ubuntu-latest  # Machine virtuelle Ubuntu
+
+    steps:
+      # Étape 1: Checkout du code
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Étape 2: Installer Make et Docker
+      - name: Install Make and Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make docker.io
+
+      # Étape 3: Exécuter la commande 'make down'
+      - name: Run make down
+        run: |
+          make down
